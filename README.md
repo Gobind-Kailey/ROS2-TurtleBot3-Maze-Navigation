@@ -79,10 +79,10 @@ This saves two files: project1.yaml and project1.pgm in the maps/ directory.
 The SLAM-generated map may contain noise or slight misalignments.
 I opened the .pgm file in GIMP and manually cleaned up the lines and walls to better reflect the actual maze layout.
 
-Before: 
+**Before:** 
 
 
-After: 
+**After:** 
 
 ![IMG_6550](https://github.com/user-attachments/assets/492326fb-d545-4128-a100-6c2bbc0cdd1e)
 
@@ -93,7 +93,7 @@ With a clean map saved, launch Nav2 to enable autonomous navigation:
 
 ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=maps/project1.yaml
 
-Map at Launch
+**Map at Launch**
 ![IMG_6551](https://github.com/user-attachments/assets/6f4f27f7-30b7-4e17-8290-cd7c25846697)
 
 
@@ -107,7 +107,8 @@ Use Nav2 Goal to set a destination within the maze.
 
 The TurtleBot3 will plan and execute a path through the maze using the cleaned map.
 
-Map when Finished Nav2 goal reached:
+
+**Map when Finished Nav2 goal reached:**
 
 ![IMG_6556](https://github.com/user-attachments/assets/196f436b-fbf3-4440-90ea-bb11bdcdfa25)
 
