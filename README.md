@@ -81,6 +81,8 @@ I opened the .pgm file in GIMP and manually cleaned up the lines and walls to be
 
 **Before:** 
 
+![IMG_6557](https://github.com/user-attachments/assets/8663320c-f0bc-4e87-96da-0900574babdb)
+
 
 **After:** 
 
