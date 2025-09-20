@@ -37,11 +37,10 @@ def main():
 
     # set initial pose 
     initial_pose = create_pose_stamped(nav, 0.0, 0.0, 0.0)
+    # comment this out if you want to run the same running file again. 
     nav.setInitialPose(initial_pose)
 
-
    
-    
 
     # Wait for Nav2
     nav.waitUntilNav2Active()
@@ -51,8 +50,8 @@ def main():
     # Send Nav2 goal 
     # 1.57 = Pi/2 -- so 90 degrees CCW
     goal_pose1 = create_pose_stamped(2.5, 1.0, 1.57)
-    goal_pose2 = create_pose_stamped(2.5, 1.0, 1.57)
-    goal_pose3 = create_pose_stamped(2.5, 1.0, 1.57)
+    goal_pose2 = create_pose_stamped(2.0, 2.5, 3.14)
+    goal_pose3 = create_pose_stamped(0.5, 1, -1.57)
 
     # if you want to go to only 1 waypoint
     # nav.goToPose(goal_pose1)
@@ -61,7 +60,10 @@ def main():
     #     # print(feedback)
 
     # Follow waypoints
+    
     waypoints = [goal_pose1, goal_pose2, goal_pose3]
+
+    # use a for loop if you want to keep looping through this. 
     nav.followWaypoints(waypoints)
     while not nav.isTaskComplete():
         feedback = nav.getFeedback()
