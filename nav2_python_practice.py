@@ -27,6 +27,8 @@ def main():
     initial_pose.pose.orientation.y = q_y
     initial_pose.pose.orientation.z = q_z
     initial_pose.pose.orientation.w = q_w
+
+    # comment this line out when running it for the second time 
     nav.setInitialPose(initial_pose)
     
 
@@ -53,13 +55,14 @@ def main():
 
     nav.goToPose(goal_pose) 
 
-# dummy
     while not nav.isTaskComplete():
         feedback = nav.getFeedback()
         # print(feedback)
 
     # Shutdown 
 
+    # Seeing if we reached the navigation goal 
+    print(nav.getResult())
 
     rclpy.shutdown()
 
