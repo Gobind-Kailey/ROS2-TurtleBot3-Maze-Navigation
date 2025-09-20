@@ -161,7 +161,11 @@ When creating a map for the first time, run Cartographer instead of Nav2 to buil
 
 
 ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=maps/my_map.yaml
-This flow lets you (1) spawn the robot, (2) start navigation with your chosen map, and (3) drive navigation goals programmatically via Python instead of clicking in RViz2.
+
+This flow lets you:
+(1) spawn the robot, 
+(2) start navigation with your chosen map, 
+(3) drive navigation goals programmatically via Python instead of clicking in RViz2.
 
 ## 🧩 Challenges and Problem-Solving
 
