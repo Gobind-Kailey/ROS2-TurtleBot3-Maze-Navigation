@@ -15,7 +15,8 @@ Created a custom maze world in Gazebo and used a TurtleBot3 robot to map and aut
 - Gazebo  
 - Cartographer SLAM  
 - Nav2 (Navigation2)  
-- GIMP (for manual map editing)  
+- GIMP (for manual map editing)
+- Python
 
 ## 🛠️ Step-by-Step Workflow
 
@@ -114,8 +115,56 @@ The TurtleBot3 will plan and execute a path through the maze using the cleaned m
 
 ![IMG_6556](https://github.com/user-attachments/assets/196f436b-fbf3-4440-90ea-bb11bdcdfa25)
 
+## 🐍 Python
 
-### 🧩 Challenges and Problem-Solving
+You can also automate setting the initial pose and sending goals with Python instead of clicking in RViz2.  
+
+1️⃣ **Observe the initial pose topic**  
+Run the following to see the topic used for setting the robot’s initial position:  
+
+ros2 topic echo /initialpose
+2️⃣ Create a new Python script using the Simple Commander API
+Navigate to your package’s scripts directory and create a new file:
+
+bash
+Copy code
+cd <your_workspace>/<package_name>/scripts
+touch nav2_python_practice.py
+chmod +x nav2_python_practice.py
+code nav2_python_practice.py   # open in VS Code
+3️⃣ Write your Python code
+Inside nav2_python_practice.py, add code to set the initial pose and navigation goals.
+
+▶️ Putting It All Together
+After writing your code and preparing your map:
+
+4️⃣ Launch your TurtleBot3 world in Gazebo
+
+bash
+Copy code
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+5️⃣ Launch Navigation2 with your chosen map
+Replace my_map.yaml with the map you want:
+
+bash
+Copy code
+ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=maps/my_map.yaml
+6️⃣ Build a map if needed
+When creating a map for the first time, run Cartographer instead of Nav2 to build the map.
+
+7️⃣ Run your Python script to send initial pose and goals
+
+bash
+Copy code
+./nav2_python_practice
+8️⃣ Alternatively, use the Nav2 bringup launch file with your map
+
+bash
+Copy code
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=maps/my_map.yaml
+This flow lets you (1) spawn the robot, (2) start navigation with your chosen map, and (3) drive navigation goals programmatically via Python instead of clicking in RViz2.
+
+## 🧩 Challenges and Problem-Solving
 
 Map Noise: The initial Cartographer map had small errors; manual editing in GIMP improved navigation accuracy.
 
@@ -123,7 +172,7 @@ Launch Integration: Creating a dedicated launch file for the custom world stream
 
 Localization: Ensured correct pose estimation before sending goals to Nav2 to prevent path planning failures.
 
-### 📌 Future Improvements
+## 📌 Future Improvements
 
 Test different SLAM packages (Hector SLAM, GMapping) for comparison.
 
