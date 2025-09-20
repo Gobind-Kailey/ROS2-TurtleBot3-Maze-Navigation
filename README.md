@@ -123,15 +123,16 @@ You can also automate setting the initial pose and sending goals with Python ins
 Run the following to see the topic used for setting the robot’s initial position:  
 
 ros2 topic echo /initialpose
+
 2️⃣ Create a new Python script using the Simple Commander API
 Navigate to your package’s scripts directory and create a new file:
 
-bash
-Copy code
+
 cd <your_workspace>/<package_name>/scripts
 touch nav2_python_practice.py
 chmod +x nav2_python_practice.py
 code nav2_python_practice.py   # open in VS Code
+
 3️⃣ Write your Python code
 Inside nav2_python_practice.py, add code to set the initial pose and navigation goals.
 
@@ -140,27 +141,25 @@ After writing your code and preparing your map:
 
 4️⃣ Launch your TurtleBot3 world in Gazebo
 
-bash
-Copy code
+
 ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+
 5️⃣ Launch Navigation2 with your chosen map
 Replace my_map.yaml with the map you want:
 
-bash
-Copy code
+
 ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=maps/my_map.yaml
+
 6️⃣ Build a map if needed
 When creating a map for the first time, run Cartographer instead of Nav2 to build the map.
 
 7️⃣ Run your Python script to send initial pose and goals
 
-bash
-Copy code
 ./nav2_python_practice
+
 8️⃣ Alternatively, use the Nav2 bringup launch file with your map
 
-bash
-Copy code
+
 ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=maps/my_map.yaml
 This flow lets you (1) spawn the robot, (2) start navigation with your chosen map, and (3) drive navigation goals programmatically via Python instead of clicking in RViz2.
 
