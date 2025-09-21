@@ -10,7 +10,7 @@ Created a custom maze world in Gazebo and used a TurtleBot3 robot to map and aut
 - Problem-solved various launch files, mapping, and navigation issues to achieve smooth end-to-end robot navigation.
 
 ## 🛠️ Technologies Used
-- ROS 2 (Foxy/Humble)  
+- ROS 2 (Humble)  
 - TurtleBot3 Simulation Packages  
 - Gazebo  
 - Cartographer SLAM  
